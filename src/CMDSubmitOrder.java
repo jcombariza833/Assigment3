@@ -11,11 +11,13 @@ public class CMDSubmitOrder implements Command<Verification> {
 
     @Override
     public Verification execute() {
-        aggregator.getOrders().add(new OrderItem(item));
-        Verification verification = new Verification("\tYour order was placed successfully");
+        Verification verification = new Verification();
 
-        if (!(item > 0 && item <= aggregator.getMenu().getMenuSize())) {
-            verification.setMessage("\tthe item selected does not exist");
+        if (item > 0 && item <= aggregator.getMenu().getMenuSize()) {
+            aggregator.getOrders().add(new OrderItem(item));
+            verification.setMessage("\tYour order was placed successfully");
+        } else {
+            verification.setMessage("\tthe item selected does not exist or is not in the inventory");
         }
 
         return verification;

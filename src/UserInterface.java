@@ -44,6 +44,8 @@ public class UserInterface {
 
     private void principalMenu() {
         separator();
+        System.out.println("PRINCIPAL MENU");
+        separator();
         System.out.println(
                         "\t1 - Display menu\n"+
                         "\t2 - Submit Order\n"+
@@ -53,12 +55,12 @@ public class UserInterface {
 
     private void  displayMenuOptionInput() {
         separator();
-        System.out.print("Please choose an option: ");
+        System.out.print("Please choose an option from the principal menu: ");
     }
 
     private void  displayMenuItemInput() {
         separator();
-        System.out.print("Please set an item number: ");
+        System.out.print("Please insert the number of the item to be placed: ");
     }
 
     private void separator() {
