@@ -1,5 +1,6 @@
 import menu.Menu;
 import menu.MenuItem;
+import orders.OrderItem;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -29,7 +30,22 @@ public class SystemInterface {
     }
 
     public static String[] getTab() {
-        return invoker.getTab().orderedItems();
+        Tab tab = invoker.getTab();
+        String[] items = new String[tab.getItemsSize() + 1];
+        Iterator<MenuItem> iterator = tab.getIterator();
+
+        int index = 0;
+        float total =0.0f;
+
+        while (iterator.hasNext()) {
+            MenuItem item = iterator.next();
+            items[index++] = String.format("\t%s .... $%.2f", item.getName(), item.getPrice());;
+            total = total + item.getPrice();
+        }
+
+        items[index] = String.format("\tTOTAL: .... $%.2f", total);
+
+        return items;
     }
 
     public static String[] placeOrder(int item) {

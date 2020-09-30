@@ -6,37 +6,31 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Menu {
-    private ArrayList<MenuItem> menuItems;
-    private HashMap<Integer, MenuItem> items;
+    private HashMap<Integer, MenuItem> menuItems;
 
     public Menu() {
-        menuItems = new ArrayList<>();
-        items = new HashMap<>();
+        menuItems = new HashMap<>();
         populateMenu();
     }
 
     public void add(MenuItem menuItem) {
-        menuItems.add(menuItem);
-        items.put(menuItem.getNumber(), menuItem);
+        menuItems.put(menuItem.getNumber(), menuItem);
     }
 
     public void deleteItem(int number) {
-        menuItems.removeIf(item -> (item.getNumber() == number));
-        items.remove(number);
+        menuItems.remove(number);
     }
 
     public MenuItem searchItem(int number) {
-        return items.get(number);
+        return menuItems.get(number);
     }
 
     public int getMenuSize() {
-        return items.size();
-        //return menuItems.size();
+        return menuItems.size();
     }
 
     public Iterator<Map.Entry<Integer, MenuItem>> getIterator() {
-        return items.entrySet().iterator();
-        //return menuItems.iterator();
+        return menuItems.entrySet().iterator();
     }
 
     private void populateMenu() {
