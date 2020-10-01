@@ -22,4 +22,9 @@ public class MenuItem {
     public float getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s .... $%.2f", name, price);
+    }
 }

@@ -22,7 +22,7 @@ public class SystemInterface {
         while (i.hasNext()) {
             Map.Entry dictionary = i.next();
             MenuItem item = (MenuItem) dictionary.getValue();
-            String output = String.format("\t%d - %s .... $%.2f", item.getNumber(), item.getName(), item.getPrice());
+            String output = String.format("\t%d - %s", item.getNumber(), item);
             items[index++] = output ;
         }
 
@@ -39,7 +39,7 @@ public class SystemInterface {
 
         while (iterator.hasNext()) {
             MenuItem item = iterator.next();
-            items[index++] = String.format("\t%s .... $%.2f", item.getName(), item.getPrice());;
+            items[index++] = String.format("\t%sf", item);;
             total = total + item.getPrice();
         }
 
