@@ -6,9 +6,8 @@ public class UserInterface {
     public void start() {
         Scanner scanner = new Scanner(System.in);
 
-        principalMenu();
-
         while (running) {
+            principalMenu();
             displayMenuOptionInput();
 
             int menuOption = validateIntInput(scanner,1,4);
@@ -17,6 +16,9 @@ public class UserInterface {
             switch (menuOption) {
                 case 1:
                     String[] items = SystemInterface.getMenu();
+                    separator();
+                    System.out.println("MENU");
+                    separator();
                     display(items);
                     break;
                 case 2:
@@ -27,6 +29,9 @@ public class UserInterface {
                     break;
                 case 3:
                     String[] orders = SystemInterface.getTab();
+                    separator();
+                    System.out.println("TAP");
+                    separator();
                     display(orders);
                     break;
                 case 4:
@@ -64,7 +69,7 @@ public class UserInterface {
     }
 
     private void separator() {
-        System.out.println("-------------------------------------------------------------");
+        System.out.println("-".repeat(50));
     }
 
     private int validateIntInput(Scanner input, int min, int max) {
